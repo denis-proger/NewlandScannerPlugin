@@ -10,8 +10,9 @@ myFunc.prototype.scan = function () {
 };
 
 myFunc.prototype.show = function (msg) {
-    document.getElementById("outputArea").value = document.getElementById("outputArea").value  + msg;
-
+    document.dispatchEvent(new CustomEvent("barcodescanned", {
+        detail: msg
+    }));
 };
 
 myFunc.prototype.scanSetting = function (para) {
